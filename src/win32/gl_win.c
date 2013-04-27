@@ -160,7 +160,7 @@ void WinGL_Init(void)
 	r_fullscreen=Cvar_Get("r_fullscreen", "1", CVAR_ARCHIVE|CVAR_RESTART);
 
 	mode=(int)r_mode->value;
-	if(mode<0 || mode>=NUM_MODES) mode=3; // invalid mode
+	if(mode<0 || mode>=Vid_Modes()) mode=3; // invalid mode
 	ri.bpp=(int)r_colorbits->value;
 	if(ri.bpp!=16 && ri.bpp!=32) ri.bpp=16;
 

@@ -18,7 +18,6 @@
 #include "resource.h"
 
 #define WND_CLASS_NAME	"NewWolf"
-#define NUM_MODES				14
 
 extern bool sys_win9x;	// true - Win9x; false - WinNT
 extern HINSTANCE hInst; // application instance

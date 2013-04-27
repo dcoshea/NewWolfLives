@@ -22,7 +22,7 @@
 HWND sys_hwnd; // main window handle
 cvar_t *win_noalttab;
 
-vidmode_t vid_modes[NUM_MODES]=
+vidmode_t vid_modes[]=
 {
 	{"mode 0: 320x240",   320,	240},
 	{"mode 1: 400x300",   400,	300},
@@ -37,7 +37,8 @@ vidmode_t vid_modes[NUM_MODES]=
 	{"mode 10: 2048x1536",2048, 1536},
 	{"mode 11: 320x200",	320,	200},
 	{"mode 12: 640x400",	640,	400},
-	{"mode 13: 1280x1024",1280,	1024}
+	{"mode 13: 1280x1024",1280,	1024},
+	{"mode 14: 1680x1050",1680,	1050}
 };
 
 // ------------------------- * Devider * -------------------------
@@ -349,7 +350,7 @@ void Vid_Activate(bool active)
 */
 int Vid_Modes(void)
 {
-	return NUM_MODES;
+	return sizeof(vid_modes)/sizeof(vid_modes[0]);
 }
 
 /*
@@ -357,7 +358,7 @@ int Vid_Modes(void)
 */
 const char *Vid_DescribeMode(int mode)
 {
-	if(mode<0 || mode>=NUM_MODES) return "";
+	if(mode<0 || mode>=Vid_Modes()) return "";
 	return vid_modes[mode].description;
 }
 
