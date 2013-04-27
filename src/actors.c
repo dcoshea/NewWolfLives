@@ -7,6 +7,15 @@ Guard_struct Guards[MAX_GUARDS+1], *New;
 unsigned char NumGuards=0;
 unsigned char add8dir[9]	={4, 5, 6, 7, 0, 1, 2, 3, 0};
 unsigned char r_add8dir[9]={4, 7, 6, 5, 0, 1, 2, 3, 0};
+// If true, all actors start with only one hit point.  As it doesn't take
+// effect until the map is restarted, we avoid confusion by only allowing it
+// to be set on the command line (e.g. "+set whereforeartthouromero 1")
+static cvar_t *whereforeartthouromero;
+
+void Actors_Init(void)
+{
+	whereforeartthouromero=Cvar_Get("whereforeartthouromero", "0", CVAR_NOSET);
+}
 
 // changes gurad's state to that defined in NewState
 void A_StateChange(Guard_struct *Guard, en_state NewState)
@@ -150,6 +159,18 @@ void RemoveActor(Guard_struct *actor)
 	NumGuards--;
 }
 
+int GetStartHitPoints(enemy_t which)
+{
+	if(!whereforeartthouromero->value)
+	{
+		return starthitpoints[gamestate.difficulty][which];
+	}
+	else
+	{
+		return 1;
+	}
+}
+
 Guard_struct *SpawnActor(enemy_t which, int x, int y, dir4type dir)
 {
 	Guard_struct *new_actor;
@@ -165,7 +186,7 @@ Guard_struct *SpawnActor(enemy_t which, int x, int y, dir4type dir)
 	new_actor->dir=dir4to8[dir];
 	new_actor->areanumber=CurMapData.areas[x][y];
 	new_actor->type=which;
-	new_actor->health=starthitpoints[gamestate.difficulty][which];
+	new_actor->health=GetStartHitPoints(which);
 	new_actor->sprite=Spr_GetNewSprite();
 	return new_actor;
 }
@@ -263,7 +284,7 @@ void SpawnBoss(enemy_t which, int x, int y)
 	
 	self->state=which==en_spectre?st_path1:st_stand;
 	self->speed=SPDPATROL;
-	self->health=starthitpoints[gamestate.difficulty][which];
+	self->health=GetStartHitPoints(which);
  	self->ticks=objstate[which][st_stand].timeout ? US_RndT()%objstate[which][st_stand].timeout + 1 : 0;
 	self->flags|=FL_SHOOTABLE|FL_AMBUSH;
 
@@ -279,7 +300,7 @@ void SpawnGhosts(enemy_t which, int x, int y)
 	
 	self->state=st_chase1;
 	self->speed=SPDPATROL*3;
-	self->health=starthitpoints[gamestate.difficulty][which];
+	self->health=GetStartHitPoints(which);
 	self->ticks=objstate[which][st_chase1].timeout ? US_RndT()%objstate[which][st_chase1].timeout + 1: 0;
 	self->flags|=FL_AMBUSH;
 

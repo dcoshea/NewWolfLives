@@ -482,6 +482,7 @@ void COM_Init(int argc, char **argv)
 	Pow_Init();	// powerups
 	Spr_Init();	// sprites
 	PE_Init();	// particles
+	Actors_Init();
 
 	InitSaveLoad();
 	

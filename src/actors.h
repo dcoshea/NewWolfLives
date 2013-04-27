@@ -90,6 +90,7 @@ extern Guard_struct *New;
 extern unsigned char NumGuards;
 extern stateinfo objstate[NUMENEMIES][NUMSTATES];
 
+void Actors_Init(void);
 void ResetGuards(void);
 void SaveGuards(FILE *fp);
 void LoadGuards(FILE *fp);

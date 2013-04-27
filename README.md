@@ -41,3 +41,6 @@ Improvements over NewWolf
     code.
   * Fix automap bug where objects (most likely actors) were not drawn
     if they were on top of a door.
+* Other debugging tools/cheats:
+  * Pass "+set whereforeartthouromero 1" on the command line to cause
+    all actors to be spawned with only 1 hit point.
