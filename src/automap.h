@@ -10,6 +10,6 @@ void AM_ResetAutomap(void);
 void AM_SaveAutomap(FILE *fp);
 void AM_LoadAutomap(FILE *fp);
 
-void AM_DrawAutomap(void);
+void AM_DrawAutomap(bool transparent);
 void AM_Hide_f(void);
 void AM_Reveal_f(void);

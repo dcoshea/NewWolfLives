@@ -10,18 +10,42 @@
 #include "WolfDef.h"
 
 bool r_automap;
+bool r_automap_transparent;
 
 // ------------------------- * Devider * -------------------------
 
 void PL_togglemap_f(void)
 {
 	r_automap=!r_automap;
+	r_automap_transparent=false;
+}
+
+// Cycle hidden -> visible solid -> visible with transparency -> hidden
+void PL_cyclemap_f(void)
+{
+	if(!r_automap)
+	{
+		r_automap=true;
+		r_automap_transparent=false;
+	}
+	else
+	{
+		if(!r_automap_transparent)
+		{
+			r_automap_transparent=true;
+		}
+		else
+		{
+			r_automap=false;
+		}
+	}
 }
 
 void R_Init(void)
 {
 	r_automap=false;
 	Cmd_AddCommand("togglemap", PL_togglemap_f);
+	Cmd_AddCommand("cyclemap", PL_cyclemap_f);
 
 // init all the rendering stuff
 	GL_Init();
@@ -184,7 +208,7 @@ void R_Draw2D(void)
 		R_DrawGun();
 		R_DrawHUD();
 
-		if(r_automap) AM_DrawAutomap();
+		if(r_automap) AM_DrawAutomap(r_automap_transparent);
 		if(developer->value) DrawDebug();
 	}
 
