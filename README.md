@@ -11,6 +11,12 @@ Improvements over NewWolf
 * Added 1680x1050 video mode, suggestions on other modes are welcome.
 * Enable use of "fov" cvar values greater than 75 without some parts
   of the sides of the view being left black (not drawn).
+* Add a crosshair, enabled by default, to address the complaint that
+  it is hard to aim when using the 3D weapon models.  Set the cvar
+  "crosshair_enabled" to 0 to disable it.  The cvars
+  "crosshair_outer_radius", "crosshair_inner_radius",
+  "crosshair_thickness" and "crosshair_alpha" can be used to customise
+  its appearance.
 * Automap enhancements:
   * Whereas the automap was previously either visible or hidden, there
     is now a third possible state: visible but partially transparent.

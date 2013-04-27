@@ -579,3 +579,33 @@ void R_DrawGun(void)
 		glTexCoord2f(1.0f, 1.0f);	glVertex2i(480, 384);
 	glEnd();
 }
+
+void R_DrawCrosshair(void)
+{
+	GLint outer_radius=(GLint)crosshair_outer_radius->value;
+	GLint inner_radius=(GLint)crosshair_inner_radius->value;
+
+	if(!crosshair_enabled->value)
+	{
+		return;
+	}
+
+	glDisable(GL_TEXTURE_2D);
+	glLineWidth(crosshair_thickness->value);
+	glColor4f(1.0, 1.0, 0.0, crosshair_alpha->value);
+	glBegin(GL_LINES);
+
+	glVertex2i(XRES/2, YRES/2-inner_radius);
+	glVertex2i(XRES/2, YRES/2-outer_radius);
+
+	glVertex2i(XRES/2+inner_radius, YRES/2);
+	glVertex2i(XRES/2+outer_radius, YRES/2);
+
+	glVertex2i(XRES/2, YRES/2+inner_radius);
+	glVertex2i(XRES/2, YRES/2+outer_radius);
+
+	glVertex2i(XRES/2-inner_radius, YRES/2);
+	glVertex2i(XRES/2-outer_radius, YRES/2);
+
+	glEnd();
+}

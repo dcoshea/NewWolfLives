@@ -93,4 +93,5 @@ void R_DrawSprites(void);
 void R_DrawParticles(void);
 void R_DrawCelFloorHack(void);
 void R_DrawGun(void);
+void R_DrawCrosshair(void);
 

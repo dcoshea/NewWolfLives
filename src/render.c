@@ -12,6 +12,12 @@
 bool r_automap;
 bool r_automap_transparent;
 
+cvar_t *crosshair_enabled;
+cvar_t *crosshair_outer_radius;
+cvar_t *crosshair_inner_radius;
+cvar_t *crosshair_thickness;
+cvar_t *crosshair_alpha;
+
 // ------------------------- * Devider * -------------------------
 
 void PL_togglemap_f(void)
@@ -46,6 +52,12 @@ void R_Init(void)
 	r_automap=false;
 	Cmd_AddCommand("togglemap", PL_togglemap_f);
 	Cmd_AddCommand("cyclemap", PL_cyclemap_f);
+
+	crosshair_enabled=Cvar_Get("crosshair_enabled", "1", CVAR_ARCHIVE);
+	crosshair_outer_radius=Cvar_Get("crosshair_outer_radius", "10", CVAR_ARCHIVE);
+	crosshair_inner_radius=Cvar_Get("crosshair_inner_radius", "5", CVAR_ARCHIVE);
+	crosshair_thickness=Cvar_Get("crosshair_thickness", "2", CVAR_ARCHIVE);
+	crosshair_alpha=Cvar_Get("crosshair_alpha", "0.6", CVAR_ARCHIVE);
 
 // init all the rendering stuff
 	GL_Init();
@@ -126,6 +138,8 @@ void R_LatchNumber(int x, int y, int width, long number)
 */
 void R_DrawHUD(void)
 {
+	R_DrawCrosshair();
+
 	Vid_DrawPic(0, 384, STATUSBARPIC);
 	R_DrawFace();
 
