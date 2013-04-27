@@ -8,3 +8,5 @@ NewWolf was last updated in 2006 (version 0.73).  As I have not heard back from 
 Improvements over NewWolf
 -------------------------
 * Added 1680x1050 video mode, suggestions on other modes are welcome.
+* Enable use of "fov" cvar values greater than 75 without some parts
+  of the sides of the view being left black (not drawn).

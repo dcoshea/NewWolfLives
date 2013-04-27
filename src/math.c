@@ -41,7 +41,7 @@ int dir8angle[9]={ANG_0, ANG_45, ANG_90, ANG_135, ANG_180, ANG_225, ANG_270, ANG
 int dir4angle[5]={ANG_0, ANG_90, ANG_180, ANG_270, ANG_0};
 
 // ------------------------- * Devider * -------------------------
-int Math_Init(void)
+int Math_Init(float fov)
 {
 	double angle, tanfov2, tanval, value;
 	int n;
@@ -80,7 +80,7 @@ int Math_Init(void)
 			XnextTable[n]=(int)(FLOATTILE/tan(angle));
 	}
 
-	tanfov2=TanDgr(CalcFov(75, XRES, YRES)/2.0)*((float)XRES/(float)YRES);
+	tanfov2=TanDgr(CalcFov(fov, XRES, YRES)/2.0)*((float)XRES/(float)YRES);
 	for(n=0; n<XRES; n++)
 	{
 		tanval=tanfov2*(-1.0+2.0*(double)n/(double)(XRES-1) );

@@ -87,6 +87,8 @@ void GL_CheckFOV(void)
 		Cvar_SetValue(vid_fov->name, (cur_x_fov>=1 && cur_x_fov<=179)?cur_x_fov:DEFAULT_FOV);
 	}
 
+	Math_Init(vid_fov->value);
+
 	ratio=(float)ri.w/(float)ri.h; // FIXME: move somewhere
 	cur_x_fov=vid_fov->value;
 	cur_y_fov=CalcFov(cur_x_fov, (float)ri.w, (float)ri.h);

@@ -125,7 +125,7 @@ extern double SinTable[], *CosTable, TanTable[ANG_360+1];
 extern int XnextTable[ANG_360+1], YnextTable[ANG_360+1];
 extern int ColumnAngle[XRES];
 
-int Math_Init(void);
+int Math_Init(float fov);
 double TanDgr(double x);
 double SinDgr(double x);
 double CosDgr(double x);

@@ -440,7 +440,8 @@ void COM_Init(int argc, char **argv)
 
 	Sys_Info();			// sets system dependend flags /CPU and OS types/
 	Sys_Init();			// initializes system dependent stuff
-	Math_Init();		// math /depends on system to allow MMX optimizations/
+	// Math_Init() is no longer called here, as we need to call it each time the
+	//             FOV is changed
 
 	Key_Init();			// allows bindings to be set
 
