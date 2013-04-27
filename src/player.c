@@ -866,6 +866,15 @@ bool PL_Reborn(player_t *self)
 
 	self->weapon=self->pendingweapon=WEAPON_PISTOL;
 	self->items=ITEM_WEAPON_1|ITEM_WEAPON_2;
+	if(IS_SPEAR)
+	{
+		// On the en_angel level, need to give the player the gold key so that
+		// they can get out of the room they picked up pow_spear from.
+		if(gamestate.map==21)
+		{
+			self->items|=ITEM_KEY_1;
+		}
+	}
 
 	return true;
 }

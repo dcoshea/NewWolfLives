@@ -22,6 +22,10 @@ powerup_t *powerups=NULL;
 powerup_t *Pow_Remove(powerup_t *powerup);
 powerup_t *Pow_AddNew(void);
 
+bool spearflag=false; // true if the user just picked up pow_spear
+// if spearflag is true, player's location when they picked it up
+placeonplane_t spearlocation;
+
 int Pow_Texture[pow_last]=
 {
 	SPR_STAT_34,		//pow_gibs
@@ -238,6 +242,18 @@ int Pow_Give(pow_t type)
 		Msg_Printf("Extra life!");
 		break;
 
+	case pow_spear:
+	{
+		Msg_Printf("Picked up the Spear of Destiny!");
+		// set a flag to indicate to the calling function, Pow_PickUp(),
+		// that it should change level after it has removed the object
+		spearflag=true;
+		// store the player's location so it can be restored after changing
+		// level
+		spearlocation=Player.position;
+		break;
+	}
+
 // ------------------------- * Devider * -------------------------
 	default:
 		Con_Printf("Warning: Unknown item type: %d\n", type);
@@ -303,4 +319,14 @@ check_again:
 		CurMapData.tile_info[x][y]|= TILE_IS_POWERUP;
 	else
 		CurMapData.tile_info[x][y]&=~TILE_IS_POWERUP;
+
+	if(spearflag)
+	{
+		// player picked up pow_spear, so change to map 21 and then respawn
+		// them in the same position they were previously in
+		spearflag=false;
+		gamestate.map=21;
+		LoadRealLevel(gamestate.map-1);
+		PL_Spawn(spearlocation);
+	}
 }
