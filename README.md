@@ -3,7 +3,12 @@ NewWolfLives
 
 A fork resurrecting NewWolf (Wolfenstein 3D for OpenGL on Windows)
 
-NewWolf was last updated in 2006 (version 0.73).  As I have not heard back from the author and have some fixes and ideas for improvements, I'm creating this fork for those who want a more modern (although perhaps less "authentic") Wolfenstein 3D experience.  With the code on GitHub, it will be easy for anyone else to fork in case I also disappear!
+NewWolf was last updated in 2006 (version 0.73).  As I have not heard
+back from the author and have some fixes and ideas for improvements,
+I'm creating this fork for those who want a more modern (although
+perhaps less "authentic") Wolfenstein 3D experience.  With the code on
+GitHub, it will be easy for anyone else to fork in case I also
+disappear!
 
 Improvements over NewWolf
 -------------------------
@@ -51,3 +56,28 @@ Improvements over NewWolf
 * Other debugging tools/cheats:
   * Pass "+set whereforeartthouromero 1" on the command line to cause
     all actors to be spawned with only 1 hit point.
+
+Installation
+------------
+1. Go to http://newwolf.sourceforge.net/ and install the latest
+   NewWolf version (0.73), plus any model and texture packs you'd
+   like.  Quick link to NewWolf itself:
+   http://sourceforge.net/projects/newwolf/files/NewWolf%20GL/0.73/nwgl_73.zip/download
+   That .zip file contains a readme.txt explaining how to run NewWolf.
+   Get this working first.  Note that the faq.txt suggests setting the
+   screen resolution on the command line, but you can set it in game
+   via the "Video Options" menu.  You'll need to do it this way for
+   the new video mode(s) added in NewWolfLives as I haven't told you
+   what the mode numbers are!
+2. Download NewWolfLives from
+   https://sourceforge.net/projects/newwolflives/files/releases/,
+   unzip the .exe into the same directory as NewWolf.exe, and run it
+   exactly as you would run NewWolf.exe.
+
+Links
+-----
+* http://newwolf.sourceforge.net/ - Original NewWolf, still required.
+* https://sourceforge.net/projects/newwolflives/files/releases/ -
+  NewWolfLives downloads.
+* https://github.com/dcoshea/NewWolfLives - NewWolfLives source code,
+  issue tracker, etc.
