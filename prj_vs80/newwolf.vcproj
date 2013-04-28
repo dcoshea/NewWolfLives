@@ -63,7 +63,7 @@
 			<Tool
 				Name="VCLinkerTool"
 				AdditionalDependencies="OpenGL32.lib Glu32.lib Winmm.lib"
-				OutputFile="../exe/NewWolf_d.exe"
+				OutputFile="../exe/NewWolfLives_d.exe"
 				LinkIncremental="2"
 				AdditionalLibraryDirectories=""
 				GenerateDebugInformation="true"
@@ -141,7 +141,7 @@
 			<Tool
 				Name="VCLinkerTool"
 				AdditionalDependencies="OpenGL32.lib Glu32.lib Winmm.lib"
-				OutputFile="../exe/NewWolf.exe"
+				OutputFile="../exe/NewWolfLives.exe"
 				LinkIncremental="1"
 				GenerateDebugInformation="true"
 				SubSystem="2"

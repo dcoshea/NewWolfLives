@@ -83,7 +83,7 @@ bool Win_CreateWindow(bool fullscreen, bool center, int width, int height, int b
 		adjust.bottom+=dy;
 	}
 
-	sys_hwnd=CreateWindowEx(fullscreen?WS_EX_TOPMOST:0, WND_CLASS_NAME, "NewWolf: Wolfenstein3D for OpenGL <"__DATE__">",
+	sys_hwnd=CreateWindowEx(fullscreen?WS_EX_TOPMOST:0, WND_CLASS_NAME, NEWWOLF_NAME": Wolfenstein3D for OpenGL <"__DATE__">",
 												style, adjust.left, adjust.top, 
 												adjust.right-adjust.left, adjust.bottom-adjust.top, 
 												NULL, NULL, hInst, NULL);

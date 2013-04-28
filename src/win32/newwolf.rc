@@ -1,6 +1,7 @@
 // Microsoft Visual C++ generated resource script.
 //
 #include "resource.h"
+#include "../common/common.h"
 
 #define APSTUDIO_READONLY_SYMBOLS
 /////////////////////////////////////////////////////////////////////////////
@@ -100,7 +101,7 @@ IDI_NEWWOLF             ICON                    "NewWolf.ico"
 //
 
 VS_VERSION_INFO VERSIONINFO
- FILEVERSION 0,7,3,0
+ FILEVERSION 0,7,4,0
  PRODUCTVERSION 1,0,0,0
  FILEFLAGSMASK 0x3fL
 #ifdef _DEBUG
@@ -117,15 +118,15 @@ BEGIN
         BLOCK "040904b0"
         BEGIN
             VALUE "Comments", "Legendary Wolfenstein 3D from ID Software now with OpenGL support  by DarkOne"
-            VALUE "CompanyName", "DarkOne's Studio"
-            VALUE "FileDescription", "WolfGL"
-            VALUE "FileVersion", "0.73"
-            VALUE "InternalName", "WolfGL"
-            VALUE "LegalCopyright", "Copyright © 2000-2001 by DarkOne"
-            VALUE "LegalTrademarks", "by DarkOne"
-            VALUE "OriginalFilename", "WolfGL.exe"
+            VALUE "CompanyName", "David O'Shea"
+            VALUE "FileDescription", NEWWOLF_NAME
+            VALUE "FileVersion", "0.74"
+            VALUE "InternalName", NEWWOLF_NAME
+            VALUE "LegalCopyright", "Copyright © 2000-2001 by DarkOne.  Portions Copyright © David O'Shea 2011-2013."
+            VALUE "LegalTrademarks", "by DarkOne, portions by David O'Shea"
+            VALUE "OriginalFilename", NEWWOLF_NAME ".exe"
             VALUE "PrivateBuild", "N/A"
-            VALUE "ProductName", "NewWolf Project - Wolfenstein3D for OpenGL"
+            VALUE "ProductName", NEWWOLF_NAME " Project - Wolfenstein3D for OpenGL"
             VALUE "ProductVersion", "1.0"
             VALUE "SpecialBuild", "N/A"
         END

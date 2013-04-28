@@ -26,7 +26,8 @@
 #include "keys.h"
 // ------------------------- * constants * -------------------------
 
-#define VERSION			0.73
+#define NEWWOLF_NAME	"NewWolfLives"
+#define VERSION			0.74
 #define BASEDIRNAME "basewgl"
 
 // width and height in 2D

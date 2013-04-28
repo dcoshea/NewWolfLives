@@ -727,7 +727,7 @@ int Ver_Init(void)
 	if(n==WSET_LAST)
 	{
 		Con_Printf("-> No Wolf data files found!\n");
-		Sys_Error("No Wolf data files found.\nYou need original Wolf3D data files in order to play NewWolf.");
+		Sys_Error("No Wolf data files found.\nYou need original Wolf3D data files in order to play %s.", NEWWOLF_NAME);
 	}
 	Con_Printf("-> Wolf version: %s", ver_def[n].desc);
 	if(n==WSET_WL3)
@@ -735,7 +735,7 @@ int Ver_Init(void)
 		Con_Printf("\n");
 		Con_Printf("-> Sorry, but it is currenty unsupported\n");
 		Con_Printf("-> Wait for an update...\n");
-		Sys_Error("NewWolf doesn't support '3 episode version' yet.");
+		Sys_Error("%s doesn't support '3 episode version' yet.", NEWWOLF_NAME);
 	}
 
 	sprintf(WolfVer.file_audh, "%s/%s.%s", datadir->string, file_audh, gametype->string); 

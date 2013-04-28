@@ -177,7 +177,7 @@ void Sys_Info(void)
 
 	GetLocalTime(&time);
 	Con_Printf(" ******************************\n");
-	Con_Printf("NewWolf version %4.2f %s [%s]\n", VERSION, BUILDSTRING, __DATE__);
+	Con_Printf("%s version %4.2f %s [%s]\n", NEWWOLF_NAME, VERSION, BUILDSTRING, __DATE__);
 	Con_Printf("Built on %s, %s\n", __DATE__, __TIME__);
 	Con_Printf("Ran on    %02d/%02d/%02d, %02d:%02d:%02d\n\n", time.wMonth, time.wDay, time.wYear, time.wHour, time.wMinute, time.wSecond);
 

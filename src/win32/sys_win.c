@@ -40,7 +40,7 @@ void Sys_Error(char *error, ...)
 
 	Con_Printf("Sys_Error: %s\n", text);
 	COM_Shutdown();
-	MessageBox(NULL, text, "NewWolf Error", MB_ICONEXCLAMATION|MB_OK);
+	MessageBox(NULL, text, NEWWOLF_NAME" Error", MB_ICONEXCLAMATION|MB_OK);
 
 // shut down any system specific stuff
 	timeEndPeriod(1);

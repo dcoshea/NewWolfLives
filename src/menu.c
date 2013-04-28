@@ -1406,8 +1406,8 @@ void M_Video_Draw(void)
 	FNT_SetScale(1, 1);
 	FNT_SetColor(RGBA_READH);
 
-	FNT_PrintC(125, 0, 640, "NOTE: you should restart NewWolf");
-	FNT_PrintC(150, 0, 640, "for settings to take effect");
+	FNT_PrintC(125, 0, 640, "NOTE: you must restart the game");
+	FNT_PrintC(150, 0, 640, "for changes to take effect");
 
 	FNT_SetFont(FNT_WOLF_BIG);
 	FNT_SetColor(RGBA_WLMSL);

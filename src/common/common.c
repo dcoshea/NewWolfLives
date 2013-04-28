@@ -495,7 +495,7 @@ void COM_Init(int argc, char **argv)
 	Sys_EndSplash();	// end splash screen
 //	Win_Show(true);		// show main window /switch video mode is necessary/
 
-	Con_Printf("\n======= NewWolf Initialized ========\n\n");
+	Con_Printf("\n======= %s Initialized ========\n\n", NEWWOLF_NAME);
 
 // --- * initializaton done * ---
 
@@ -516,12 +516,12 @@ void COM_Shutdown(void)
 {
 	FILE *fp;
 
-	Con_Printf("Terminating NewWolf...\n");
+	Con_Printf("Terminating %s...\n", NEWWOLF_NAME);
 
 	fp=fopen(FS_ExpandFilename("config.cfg"), "wt");
 	if(fp)
 	{
-		fprintf(fp, "// NewWolf Version %4.2f config file\n", VERSION);
+		fprintf(fp, "// %s Version %4.2f config file\n", NEWWOLF_NAME, VERSION);
 		Key_WriteBindings(fp);
 		Cvar_WriteVariables(fp);
 		fclose(fp);
