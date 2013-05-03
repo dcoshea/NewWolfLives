@@ -228,6 +228,8 @@ int WINAPI WinMain(HINSTANCE hCurInstance, HINSTANCE hPrevInstance, LPSTR lpCmdL
 {
   MSG msg;
 	int time, oldtime, newtime;
+	cvar_t *min_ms_between_frames;
+	int min_ms_between_frames_value;
 
 // previous instances do not exist in Win32, but just in case
 	if(hPrevInstance) return 0;
@@ -236,6 +238,10 @@ int WINAPI WinMain(HINSTANCE hCurInstance, HINSTANCE hPrevInstance, LPSTR lpCmdL
 	ParseCommandLine(lpCmdLine);
 
 	COM_Init(argc, argv); // initialization
+
+	min_ms_between_frames=Cvar_Get("min_ms_between_frames", "1", CVAR_ARCHIVE); // Not saved.
+	min_ms_between_frames_value=(int) min_ms_between_frames->value;
+
 	oldtime=Sys_Milliseconds();
 
 // main window message loop
@@ -250,11 +256,22 @@ int WINAPI WinMain(HINSTANCE hCurInstance, HINSTANCE hPrevInstance, LPSTR lpCmdL
 
 		if(Minimized || !ActiveApp) continue; // FIXME
 
+		if(min_ms_between_frames->modified) {
+			min_ms_between_frames_value=(int) min_ms_between_frames->value;
+			// Originally, the code below always waited until time was >= 1,
+			// so ensure that we don't allow the loop to exit when time == 0.
+			// I'm not sure if that would cause problems or not, but limiting
+			// players to <1000 FPS seems reasonable anyway!
+			if(min_ms_between_frames_value<1) {
+				min_ms_between_frames_value=1;
+			}
+		}
+
 		do
 		{
 			newtime=Sys_Milliseconds();
 			time=newtime-oldtime;
-		} while(time<1);
+		} while(time<min_ms_between_frames_value);
 //		Msg_Printf("time: %d - %d = %d", newtime, oldtime, time);
 		oldtime=newtime;
 
