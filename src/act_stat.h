@@ -819,9 +819,9 @@ stateinfo objstate[NUMENEMIES][NUMSTATES]=
 	{
 		ST_INFO_NULL, // st_stand,
 
-		{0, SPR_FIRE1, 6, NULL, T_Projectile, st_path2}, // st_path1,
+		{0, SPR_FIRE1, 6, T_Projectile, NULL, st_path2}, // st_path1,
 		ST_INFO_NULL, // st_path1s,
-		{0, SPR_FIRE2, 6, NULL, T_Projectile, st_path1}, // st_path2,
+		{0, SPR_FIRE2, 6, T_Projectile, NULL, st_path1}, // st_path2,
 		ST_INFO_NULL, // st_path3,
 		ST_INFO_NULL, // st_path3s,
 		ST_INFO_NULL, // st_path4,
