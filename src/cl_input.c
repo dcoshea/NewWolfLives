@@ -189,17 +189,16 @@ void CL_AdjustAngles(usercmd_t *cmd)
 */
 void CL_BaseMove(usercmd_t *cmd)
 {
-	int speed, tspeed;
+	int speed;
 	int forward, side;
 
 	memset(cmd, 0, sizeof(usercmd_t));
 	CL_AdjustAngles(cmd);
 
-	speed=in_speed.state&1;
-	if(allwaysrun->value) speed=1-speed;
+	speed=in_speed.state&1; // 0 for walking, 1 for running
+	if(allwaysrun->value) speed=1-speed; // invert if allwaysrun
 
 	forward=side=0;
-	tspeed=speed; // FIXME
 
 	if(in_strafe.state&1)
 	{
