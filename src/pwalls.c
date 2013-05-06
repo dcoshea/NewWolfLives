@@ -94,7 +94,7 @@ void PW_Process(void)
 
 // Shall we move futher?
 	if(CurMapData.tile_info[PWall.x+PWall.dx][PWall.y+PWall.dy]&(TILE_IS_SOLIDTILE | TILE_IS_DOOR | TILE_IS_ACTOR | TILE_IS_POWERUP) ||
-	   PWall.PWtilesmoved==3)
+	   PWall.PWtilesmoved==2)
 	{
 		CurMapData.tile_info[PWall.x][PWall.y]&=(~TILE_IS_PWALL); // wall now
 		CurMapData.tile_info[PWall.x][PWall.y]|=TILE_IS_WALL; // wall now
