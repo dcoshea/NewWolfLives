@@ -247,7 +247,7 @@ int WINAPI WinMain(HINSTANCE hCurInstance, HINSTANCE hPrevInstance, LPSTR lpCmdL
 // main window message loop
 	while(1)
 	{
-		if(PeekMessage(&msg, NULL, 0, 0, PM_REMOVE))
+		while(PeekMessage(&msg, NULL, 0, 0, PM_REMOVE))
 		{
 			if(msg.message==WM_QUIT) Sys_Quit(); // quit message
 			TranslateMessage(&msg);
