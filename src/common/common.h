@@ -232,6 +232,10 @@ void Con_Printf(char *fmt, ...);
 void Msg_Printf(char *fmt, ...);
 void Con_ToggleConsole_f(void);
 
+// ------------------------- * Debugger Output * -----------------
+// Sends a message to the debugger (Windows-specific).
+void Debug_Printf(char *fmt, ...);
+
 // ------------------------- * Client/Server interaction * -------------------------
 #define BT_ATTACK			1		// Press "Fire"
 #define BT_USE				2		// Use button, to open doors, activate switches.

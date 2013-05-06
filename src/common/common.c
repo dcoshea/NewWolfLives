@@ -14,6 +14,8 @@
 **************************************************************************
 ** misc functions
 *************************************************************************/
+#include <Windows.h>
+
 //#include "common.h"
 #include "../WolfDef.h"
 #include "../scripts/scripts.h"
@@ -114,6 +116,22 @@ void COM_AddParm(char *parm)
 	if(com_argc==MAX_NUM_ARGVS)
 		Sys_Error("COM_AddParm: Too many arguments");
 	com_argv[com_argc++]=parm;
+}
+
+// ------------------------- * Debugger Output * -----------------
+
+#define	MAXPRINTMSG	4096
+
+void Debug_Printf(char *fmt, ...)
+{
+	va_list argptr;
+	char msg[MAXPRINTMSG];
+
+	va_start(argptr,fmt);
+	vsprintf(msg, fmt, argptr);
+	va_end(argptr);
+
+	OutputDebugString(msg);
 }
 
 // ------------------------- * Size Buffer * -------------------------
