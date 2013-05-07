@@ -12,7 +12,6 @@ disappear!
 
 Improvements over NewWolf
 -------------------------
-* Fix Spear of Destiny final boss levels (maps 18 and 21).
 * Added 1680x1050 video mode, suggestions on other modes are welcome.
 * Enable use of "fov" cvar values greater than 75 without some parts
   of the sides of the view being left black (not drawn).
@@ -51,11 +50,24 @@ Improvements over NewWolf
   * Add a new cvar "automap_actors", which can be set to 1 to show
     actors in the map.  Previously this could be done by hacking the
     code.
-  * Fix automap bug where objects (most likely actors) were not drawn
-    if they were on top of a door.
 * Other debugging tools/cheats:
   * Pass "+set whereforeartthouromero 1" on the command line to cause
     all actors to be spawned with only 1 hit point.
+  * The "min_ms_between_frames" cvar can be set to control the minimum
+    time in milliseconds between frames, and therefore the maximum
+    frame rate/FPS.
+
+Fixes for bugs in NewWolf
+-------------------------
+* Fix Spear of Destiny final boss levels (maps 18 and 21).
+* Fix slow Fake Hitler projectiles (an issue in the original
+  Wolfenstein 3D).
+* Fix automap bug where objects (most likely actors) were not drawn if
+  they were on top of a door.
+* Fix problem where player keeps moving forward after releasing the
+  forward key if they moved the mouse a lot while moving forward.
+* Fix secret push walls to move no more than 2 blocks, not 3, making
+  for example the secret area in Wolfenstein 3D E6M2 accessible.
 
 Installation
 ------------
