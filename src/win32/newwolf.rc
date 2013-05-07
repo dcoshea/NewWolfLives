@@ -101,7 +101,7 @@ IDI_NEWWOLF             ICON                    "NewWolf.ico"
 //
 
 VS_VERSION_INFO VERSIONINFO
- FILEVERSION 0,7,4,0
+ FILEVERSION 0,7,5,0
  PRODUCTVERSION 1,0,0,0
  FILEFLAGSMASK 0x3fL
 #ifdef _DEBUG
@@ -120,7 +120,7 @@ BEGIN
             VALUE "Comments", "Legendary Wolfenstein 3D from ID Software now with OpenGL support  by DarkOne"
             VALUE "CompanyName", "David O'Shea"
             VALUE "FileDescription", NEWWOLF_NAME
-            VALUE "FileVersion", "0.74"
+            VALUE "FileVersion", "0.75"
             VALUE "InternalName", NEWWOLF_NAME
             VALUE "LegalCopyright", "Copyright © 2000-2001 by DarkOne.  Portions Copyright © David O'Shea 2011-2013."
             VALUE "LegalTrademarks", "by DarkOne, portions by David O'Shea"

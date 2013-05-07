@@ -27,7 +27,7 @@
 // ------------------------- * constants * -------------------------
 
 #define NEWWOLF_NAME	"NewWolfLives"
-#define VERSION			0.74
+#define VERSION			0.75
 #define BASEDIRNAME "basewgl"
 
 // width and height in 2D
