@@ -1,3 +1,6 @@
+// The bonus flash value starts at this value, then decays down to 0.
+#define BONUS_FLASH_MAX 64
+
 void R_Init(void);
 
 void R_DrawHUD(void);
@@ -22,3 +25,7 @@ extern cvar_t *crosshair_inner_radius;
 extern cvar_t *crosshair_thickness;
 // alpha (transparency) of the crosshair lines, in range 0.0-1.0
 extern cvar_t *crosshair_alpha;
+
+// add this many times the radius when picking something (a bonus) up: 0.0 =
+// no increase, 1.0 = double the radius
+extern cvar_t *crosshair_bonus_scale;

@@ -580,10 +580,14 @@ void R_DrawGun(void)
 	glEnd();
 }
 
-void R_DrawCrosshair(void)
+void R_DrawCrosshair(int bonusflash)
 {
-	GLint outer_radius=(GLint)crosshair_outer_radius->value;
-	GLint inner_radius=(GLint)crosshair_inner_radius->value;
+	// If crosshair_bonus_scale > 0, then whenever the player picks up a
+	// bonus, the crosshair will briefly increase in size.
+	float scale_factor = 1.0 + crosshair_bonus_scale->value*bonusflash/BONUS_FLASH_MAX;
+
+	GLint outer_radius=(GLint)crosshair_outer_radius->value * scale_factor;
+	GLint inner_radius=(GLint)crosshair_inner_radius->value * scale_factor;
 
 	if(!crosshair_enabled->value)
 	{

@@ -17,6 +17,7 @@ cvar_t *crosshair_outer_radius;
 cvar_t *crosshair_inner_radius;
 cvar_t *crosshair_thickness;
 cvar_t *crosshair_alpha;
+cvar_t *crosshair_bonus_scale;
 
 // ------------------------- * Devider * -------------------------
 
@@ -58,6 +59,7 @@ void R_Init(void)
 	crosshair_inner_radius=Cvar_Get("crosshair_inner_radius", "5", CVAR_ARCHIVE);
 	crosshair_thickness=Cvar_Get("crosshair_thickness", "2", CVAR_ARCHIVE);
 	crosshair_alpha=Cvar_Get("crosshair_alpha", "0.6", CVAR_ARCHIVE);
+	crosshair_bonus_scale=Cvar_Get("crosshair_bonus_scale", "0.5", CVAR_ARCHIVE);
 
 // init all the rendering stuff
 	GL_Init();
@@ -136,9 +138,9 @@ void R_LatchNumber(int x, int y, int width, long number)
 **
 ** expected to be called every frame (except for: when in menu)
 */
-void R_DrawHUD(void)
+void R_DrawHUD(int bonusflash)
 {
-	R_DrawCrosshair();
+	R_DrawCrosshair(bonusflash);
 
 	Vid_DrawPic(0, 384, STATUSBARPIC);
 	R_DrawFace();
@@ -163,7 +165,7 @@ void R_ResetFlash()
 
 void R_BonusFlash(void)
 {
-	r_bonusflash=64;	// white shift palette
+	r_bonusflash=BONUS_FLASH_MAX;	// white shift palette
 }
 
 void R_DamageFlash(int damage)
@@ -220,7 +222,7 @@ void R_Draw2D(void)
 		extern void DrawDebug(void);
 
 		R_DrawGun();
-		R_DrawHUD();
+		R_DrawHUD(r_bonusflash);
 
 		if(r_automap) AM_DrawAutomap(r_automap_transparent);
 		if(developer->value) DrawDebug();
@@ -229,11 +231,6 @@ void R_Draw2D(void)
 	Con_Draw();	// draw console always (and before menu)
 	if(key_dest==key_menu) M_Draw(); // Draw menu
 	R_DrawFlash();			// bouns/damage flash
-/*
-	Vid_DrawPicture(304-(bonuscount>>2), 224-(bonuscount>>2),
-									336+(bonuscount>>2), 256+(bonuscount>>2),
-									TEX_VIDEO, 0, 0, 1, 1, 1); // crosshair
-*/	
 }
 
 // ------------------------- * Screen Refresh (new frame) * -------------------------
