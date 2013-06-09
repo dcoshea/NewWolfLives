@@ -86,6 +86,47 @@ Installation
    unzip the .exe into the same directory as NewWolf.exe, and run it
    exactly as you would run NewWolf.exe.
 
+How to build the sources
+------------------------
+NewWolfLives uses CMake to generate its Microsoft Visual Studio
+solution/project files, which should make it easier to use different
+versions of Visual Studio and/or other compilers in the future.  This
+means that, compared to NewWolf, there is an extra CMake generation
+step required before launching Visual Studio.  This has been tested
+with CMake version 2.6:
+1. Create a directory in which to perform the build.  This does not
+   have to be inside the working copy/source tree.  For example, for
+   consistency with NewWolf, create "proj_vs80" at the top level of
+   the source tree.
+2. Open a Command Prompt in that directory.
+3. Run `cmake.exe -G "Visual Studio 8 2005" <path to source
+   directory>`.  To follow on from the example above, `cmake.exe -G
+   "Visual Studio 8 2005" ..\src`.  Sample output:
+```
+-- Check for working C compiler: cl
+-- Check for working C compiler: cl -- works
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working CXX compiler: cl
+-- Check for working CXX compiler: cl -- works
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Configuring done
+-- Generating done
+-- Build files have been written to: C:/[...]/NewWolfLives/proj_vs80
+```
+
+In Visual Studio, you may wish to right-click on "NewWolfLives" in the
+**Solution Explorer** and select **Set as StartUp Project** so that
+the **Start Debugging** toolbar button works without requiring you to
+select an executable file name.
+
+When you perform a build, output appears in the following
+sub-directories of the build directory, where CONFIGURATION is
+e.g. Debug:
+* CONFIGURATION/: .exe file
+* NewWolfLives.dir/CONFIGURATION/: .obj files
+
 Links
 -----
 * http://newwolf.sourceforge.net/ - Original NewWolf, still required.
