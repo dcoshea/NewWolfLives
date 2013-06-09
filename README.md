@@ -89,23 +89,25 @@ Installation
 How to build the sources
 ------------------------
 Supported development environments:
-* Microsoft Visual C++ 2005
-* Microsoft Visual C++ 2005 Express Edition.
+* Microsoft Visual C++ 2005, 2008 and 2010, including Express Editions
+  of these (2010 non-Express has not been tested, but should work)
 
 NewWolfLives uses CMake to generate its Microsoft Visual Studio
 solution/project files, which should make it easier to use different
 versions of Visual Studio and/or other compilers in the future.  This
 means that, compared to NewWolf, there is an extra CMake generation
 step required before launching Visual Studio.  This has been tested
-with CMake version 2.6:
+with CMake versions 2.6 and 2.8:
 1. Create a directory in which to perform the build.  This does not
    have to be inside the working copy/source tree.  For example, for
    consistency with NewWolf, create "proj_vs80" at the top level of
    the source tree.
 2. Open a Command Prompt in that directory.
-3. Run `cmake.exe -G "Visual Studio 8 2005" <path to source
-   directory>`.  To follow on from the example above, `cmake.exe -G
-   "Visual Studio 8 2005" ..\src`.  Sample output:
+3. Run `cmake.exe -G "<generator>" <path to source directory>`, where
+   <generator> can be "Visual Studio 8 2005", "Visual Studio 9 2008"
+   or "Visual Studio 10" (i.e. 2010).  To follow on from the example
+   above, `cmake.exe -G "Visual Studio 8 2005" ..\src`.  Sample
+   output:
 ```
 -- Check for working C compiler: cl
 -- Check for working C compiler: cl -- works

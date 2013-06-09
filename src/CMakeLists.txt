@@ -7,13 +7,13 @@ set(CMAKE_CONFIGURATION_TYPES Debug RelWithDebInfo CACHE STRING "" FORCE)
 set(NEWWOLF_PROJECT_NAME NewWolfLives)
 project(${NEWWOLF_PROJECT_NAME})
 
-if(NOT MSVC80)
+if(NOT MSVC80 AND NOT MSVC90 AND NOT MSVC10)
     message(SEND_ERROR "
         Compilation of this project has currently only been tested
-        with Microsoft Visual C++ 2005, so generating build
-        systems for other versions or compilers is disabled.  Feel
-        free to remove this check from CMakeLists.txt if you want
-        to experiment.")
+        with Microsoft Visual C++ 2005, 2008 and 2010 (including
+        Express Editions), so generating build systems for other
+        versions or compilers is disabled.  Feel free to remove this
+        check from CMakeLists.txt if you want to experiment.")
 endif()
 
 # Vendor (third-party) sources, possibly with local modifications, are
@@ -315,7 +315,7 @@ set_target_properties(${NEWWOLF_PROJECT_NAME}
         # Issues) here.  newwolf.vcproj set this, then un-set it for
         # NEWWOLF_LIBS_JPEGLIB_SOURCES, although the sources outside
         # of jpeglib contain more warnings due to this flag than those
-        # in it.
+        # in it.  However, it is deprecated in Visual Studio 2008.
 
         # Add a suffix to the debug executable basename as was done by
         # newwolf.vcproj.  ".exe" is still added to this.
