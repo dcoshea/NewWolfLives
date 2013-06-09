@@ -88,6 +88,10 @@ Installation
 
 How to build the sources
 ------------------------
+Supported development environments:
+* Microsoft Visual C++ 2005
+* Microsoft Visual C++ 2005 Express Edition.
+
 NewWolfLives uses CMake to generate its Microsoft Visual Studio
 solution/project files, which should make it easier to use different
 versions of Visual Studio and/or other compilers in the future.  This
