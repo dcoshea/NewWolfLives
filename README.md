@@ -98,6 +98,7 @@ versions of Visual Studio and/or other compilers in the future.  This
 means that, compared to NewWolf, there is an extra CMake generation
 step required before launching Visual Studio.  This has been tested
 with CMake versions 2.6 and 2.8:
+
 1. Create a directory in which to perform the build.  This does not
    have to be inside the working copy/source tree.  For example, for
    consistency with NewWolf, create "prj_vs80" at the top level of
