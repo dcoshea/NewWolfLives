@@ -109,6 +109,7 @@ with CMake versions 2.6 and 2.8:
    or "Visual Studio 10" (i.e. 2010).  To follow on from the example
    above, `cmake.exe -G "Visual Studio 8 2005" ..\src`.  Sample
    output:
+
 ```
 -- Check for working C compiler: cl
 -- Check for working C compiler: cl -- works
