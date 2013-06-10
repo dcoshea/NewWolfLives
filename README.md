@@ -100,7 +100,7 @@ step required before launching Visual Studio.  This has been tested
 with CMake versions 2.6 and 2.8:
 1. Create a directory in which to perform the build.  This does not
    have to be inside the working copy/source tree.  For example, for
-   consistency with NewWolf, create "proj_vs80" at the top level of
+   consistency with NewWolf, create "prj_vs80" at the top level of
    the source tree.
 2. Open a Command Prompt in that directory.
 3. Run `cmake.exe -G "<generator>" <path to source directory>`, where
@@ -119,7 +119,7 @@ with CMake versions 2.6 and 2.8:
 -- Detecting CXX compiler ABI info - done
 -- Configuring done
 -- Generating done
--- Build files have been written to: C:/[...]/NewWolfLives/proj_vs80
+-- Build files have been written to: C:/[...]/NewWolfLives/prj_vs80
 ```
 
 In Visual Studio, you may wish to right-click on "NewWolfLives" in the
